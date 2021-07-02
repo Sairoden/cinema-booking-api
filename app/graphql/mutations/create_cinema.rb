@@ -5,11 +5,10 @@ module Mutations
 
     argument :title, String, required: true
     argument :available_seat, Integer, required: true
-    argument :movie_id, ID, required: true
 
 
-    def resolve(title:, available_seat:, movie_id:)
-      cinema = Cinema.new(title: title, available_seat: available_seat, movie_id: movie_id)
+    def resolve(title:, available_seat:)
+      cinema = Cinema.new(title: title, available_seat: available_seat)
 
       if (cinema.save) 
         {

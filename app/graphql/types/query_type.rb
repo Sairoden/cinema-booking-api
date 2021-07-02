@@ -8,16 +8,18 @@ module Types
     field :movie, Types::MovieType, null: false do
       argument :id, ID, required: true
     end
-    field :movies, [Types::MovieType], null: false
+    field :movies, [Types::MovieType], null: true
+    # field :movies, resolver: Resolvers::MoviesSearch
+
     field :moviesCount, Integer, null: true
 
     def movie(id:)
       Movie.find(id)
     end
 
-    def movies
-      Movie.all
-    end
+    # def movies
+    #   Movie.all
+    # end
     
     def moviesCount
       Movie.count
@@ -61,6 +63,28 @@ module Types
       Cinema.count 
     end
 
+    # BOOKINGS
+    field :booking, Types::BookingType, null: false do 
+      argument :id, ID, required: true
+    end
+    field :bookings, [Types::BookingType], null: false
+    field :bookingsCount, Integer, null: true
+
+
+    def booking(id:)
+      Booking.find(id)
+    end
+
+    def bookings
+      Booking.all
+    end
+
+    def bookingsCount
+      Booking.count 
+    end
+
+ 
+    
 
   end
 end

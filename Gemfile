@@ -40,3 +40,7 @@ gem "graphiql-rails", "~> 1.7"
 gem "graphql", "~> 1.12"
 
 gem "bcrypt", "~> 3.1"
+
+gem 'graphql-query-resolver'
+gem 'search_object'
+gem 'search_object_graphql'
