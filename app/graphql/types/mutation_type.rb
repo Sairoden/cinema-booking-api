@@ -1,5 +1,6 @@
 module Types
   class MutationType < Types::BaseObject
+    field :logout, mutation: Mutations::Logout
     field :create_cinema_movie, mutation: Mutations::CreateCinemaMovie
     field :create_booking, mutation: Mutations::CreateBooking
     field :create_cinema, mutation: Mutations::CreateCinema

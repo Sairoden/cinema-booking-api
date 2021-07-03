@@ -2,6 +2,7 @@ module Mutations
   class CreateMovie < BaseMutation
     
     field :movie, Types::MovieType, null: true
+    field :message, String, null: true
 
     argument :title, String, required: true
     argument :length, Integer, required: true
@@ -14,9 +15,11 @@ module Mutations
       if (movie.save)
         {
           movie: movie,
+          message: "Unable to create this movie",
           errors: []
         } else {
           movie: nil,
+          message: "Unable to create this movie",
           errors: movie.errors.full_messages
         }
       end

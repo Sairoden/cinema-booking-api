@@ -11,5 +11,7 @@ class Booking < ApplicationRecord
     cinema.available_seat = cinema.available_seat - 1
     cinema.save
   end
+
+  validates :seat_number, presence: true, uniqueness: true
   
 end

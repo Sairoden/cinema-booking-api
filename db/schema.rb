@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_072200) do
+ActiveRecord::Schema.define(version: 2021_07_03_035433) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "movie_id", null: false
-    t.string "seat_number"
+    t.integer "seat_number"
     t.string "time_slot"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_07_02_072200) do
 
   create_table "cinemas", force: :cascade do |t|
     t.string "title"
-    t.integer "available_seat"
+    t.integer "available_seat", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

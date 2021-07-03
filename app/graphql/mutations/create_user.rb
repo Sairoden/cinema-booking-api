@@ -6,6 +6,7 @@ module Mutations
     end
 
     field :user, Types::UserType, null: true
+    field :message, String, null: true
 
     argument :auth_provider, AuthProviderSignupData, required: false
     argument :first_name, String, required: true
@@ -23,9 +24,11 @@ module Mutations
       if (user.save)
         {
           user: user,
+          message: "You have successfully registered this account",
           errors: []
         } else {
           user: nil, 
+          message: "Unable to register, please try again",
           errors: user.errors.full_messages
         }
       end
